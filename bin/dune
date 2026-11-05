@@ -1,0 +1,20 @@
+(executables
+ (names
+  interp
+  compile
+  
+  
+  
+  
+  
+  )
+ (modules :standard)
+ (preprocess
+  (pps ppx_let))
+ (libraries
+  core
+  core_unix.filename_unix
+  core_unix.command_unix
+  asm
+  s_exp
+  csci1260))

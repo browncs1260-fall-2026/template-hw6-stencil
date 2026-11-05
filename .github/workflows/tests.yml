@@ -1,0 +1,14 @@
+name: Run Tests
+on: push
+jobs:
+  tests:
+    name: Run Student Tests
+    runs-on: ubuntu-latest
+    container:
+      image: jiahuac/cs1260:main
+      options: --user root
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Run tests
+        run: chmod -R 1777 ./ && su - cs1260_user -c "cd $(pwd) && eval \$(opam env) && dune runtest -f"
